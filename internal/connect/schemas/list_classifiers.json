@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "authorization_uuid",
+          "classifier_type",
+          "name",
+          "is_active",
+          "uuid"
+        ],
+        "properties": {
+          "authorization_uuid": { "type": "string" },
+          "classifier_type": { "type": "string" },
+          "name": { "type": "string" },
+          "is_active": { "type": "boolean" },
+          "uuid": { "type": "string" }
+        }
+      }
+    }
+  }
+}
