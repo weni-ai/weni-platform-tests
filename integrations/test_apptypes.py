@@ -17,11 +17,10 @@ class ListApptypesTestCase(unittest.TestCase):
 
 
 class ListAppTypesFeaturedsTestCase(unittest.TestCase):
-    
     def setUp(self):
         self.client = IntegrationsClient()
         self.schema = schemas.load("integrations/schemas/list_apptypes.json")
-    
+
     def test_list_apptypes_featureds_response_contracts(self):
         response = self.client.list_apptypes_featureds()
         jsonschema.validate(response.json(), self.schema)

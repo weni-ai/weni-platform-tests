@@ -23,17 +23,17 @@ class IntegrationsClient(ClientInterface, ClientBase):
         response.raise_for_status()
 
         return response
-    
+
     def list_apptypes_featureds(self) -> "Response":
         url = self._get_url("/api/v1/apptypes/featureds/")
         response = requests.get(url, headers=self._authenticator.headers)
         response.raise_for_status()
-        
+
         return response
-    
+
     def retrieve_apptype(self, apptype_code: str) -> "Response":
         url = self._get_url(f"/api/v1/apptypes/{apptype_code}/")
         response = requests.get(url, headers=self._authenticator.headers)
         response.raise_for_status()
-        
+
         return response
