@@ -1,7 +1,32 @@
-from decouple import config
+from decouple import config, Config, RepositoryEnv
 
+
+# TODO: Configure default authentication_class to clients
+# TODO: Get .env dinamicaly based on ENVIORNMENT
+
+# Environment settings
+
+ENVIRONMENT_LOCAL = "local"
+ENVIRONMENT_DEVELOP = "develop"
+ENVIRONMENT_STAGING = "staging"
+ENVIRONMENT_PRODUCTION = "production"
+
+ENVIRONMENTS = {
+    ENVIRONMENT_LOCAL: ".env-local",
+    ENVIRONMENT_DEVELOP: ".env-develop",
+    ENVIRONMENT_STAGING: ".env-staging",
+    ENVIRONMENT_PRODUCTION: ".env-production",
+}
 
 ENVIRONMENT = config("ENVIRONMENT", default="develop")
+
+assert (
+    ENVIRONMENT in ENVIRONMENTS
+), f"The environment `{ENVIRONMENT}` is not included in the list of accepted environmments"
+
+if ENVIRONMENT == ENVIRONMENT_LOCAL:
+    config = Config(RepositoryEnv(ENVIRONMENTS[ENVIRONMENT]))
+
 
 OIDC_OP_TOKEN_ENDPOINT = config("OIDC_OP_TOKEN_ENDPOINT")
 
