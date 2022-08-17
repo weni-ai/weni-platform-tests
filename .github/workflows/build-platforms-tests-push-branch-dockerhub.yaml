@@ -1,4 +1,4 @@
-name: Build Platforms Tests in Dockerhub (Push Branch)
+name: Build Platform Tests in Dockerhub (Push Branch)
 
 on:
   push:
@@ -24,8 +24,8 @@ jobs:
             echo "COMMIT_SHA=$GITHUB_SHA"
             echo "IMAGE_REPOSITORY=weni-ai/weni-platform-tests" >> ${GITHUB_ENV}
             echo "IMAGE_REPOSITORY=weni-ai/weni-platform-tests"
-            echo "IMAGE_TAG=weniai/platforms-tests:$TAG-${GITHUB_SHA::7}" >> $GITHUB_ENV
-            echo "IMAGE_TAG=weniai/platforms-tests:$TAG-${GITHUB_SHA::7}"
+            echo "IMAGE_TAG=weniai/platform-tests:$TAG-${GITHUB_SHA::7}" >> $GITHUB_ENV
+            echo "IMAGE_TAG=weniai/platform-tests:$TAG-${GITHUB_SHA::7}"
 
       - name: Check out the repo
         uses: actions/checkout@v2
@@ -45,7 +45,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push - Platforms Tests Image
+      - name: Build and push - Platform Tests Image
         id: docker_build1
         uses: docker/build-push-action@v2
         with:
@@ -77,7 +77,7 @@ jobs:
             verlt(){
               [ "$1" = "$2" ] && return 1 || verlte $1 $2
             }
-            export PROJECT_DIR="platforms-tests" PATCH_TARGET="deployment.json"
+            export PROJECT_DIR="platform-tests" PATCH_TARGET="deployment.json"
             ENV_DIR="kubernetes-manifests/platforms-tests/${MANIFESTS_ENVIRONMENT}"
             for e in ${ENV_DIR}; do
               echo "Update ${e}:"
