@@ -24,8 +24,8 @@ jobs:
             echo "COMMIT_SHA=$GITHUB_SHA"
             echo "IMAGE_REPOSITORY=weni-ai/weni-platform-tests" >> ${GITHUB_ENV}
             echo "IMAGE_REPOSITORY=weni-ai/weni-platform-tests"
-            echo "IMAGE_TAG=weniai/platform-tests:$TAG-${GITHUB_SHA::7}" >> $GITHUB_ENV
-            echo "IMAGE_TAG=weniai/platform-tests:$TAG-${GITHUB_SHA::7}"
+            echo "IMAGE_TAG=weniai/platform-tests:develop-${GITHUB_SHA::7}" >> $GITHUB_ENV
+            echo "IMAGE_TAG=weniai/platform-tests:develop-${GITHUB_SHA::7}"
 
       - name: Check out the repo
         uses: actions/checkout@v2
@@ -78,7 +78,7 @@ jobs:
               [ "$1" = "$2" ] && return 1 || verlte $1 $2
             }
             export PROJECT_DIR="platform-tests" PATCH_TARGET="deployment.json"
-            ENV_DIR="kubernetes-manifests/platforms-tests/${MANIFESTS_ENVIRONMENT}"
+            ENV_DIR="kubernetes-manifests/platform-tests/${MANIFESTS_ENVIRONMENT}"
             for e in ${ENV_DIR}; do
               echo "Update ${e}:"
               if [ ! -d "${e}" ] ; then
