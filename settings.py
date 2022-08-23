@@ -30,3 +30,10 @@ class AISettings(object):
     BASE_URL = config("AI_BASE_URL")
     OIDC_RP_CLIENT_ID = config("AI_OIDC_RP_CLIENT_ID")
     OIDC_RP_CLIENT_SECRET = config("AI_OIDC_RP_CLIENT_SECRET")
+
+
+class ChatsSettings(object):
+
+    BASE_URL = config("CHATS_BASE_URL")
+    OIDC_RP_CLIENT_ID = config("CHATS_OIDC_RP_CLIENT_ID")
+    OIDC_RP_CLIENT_SECRET = config("CHATS_OIDC_RP_CLIENT_SECRET")
