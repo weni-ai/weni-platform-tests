@@ -23,3 +23,11 @@ class ConnectChatsClient(ClientInterface, ClientBase):
     def retrieve_project(self, uuid: str) -> "Response":
         url = self._get_url(f"/v1/internal/project/{uuid}")
         return requests.get(url, headers=self._authenticator.headers)
+
+    def list_permissions(self, project_uuid: str):
+        url = self._get_url(f"/v1/internal/permission/project/?project={project_uuid}")
+        return requests.get(url, headers=self._authenticator.headers)
+
+    def retrieve_permissions(self, uuid: str):
+        url = self._get_url(f"/v1/internal/permission/project/{uuid}")
+        return requests.get(url, headers=self._authenticator.headers)

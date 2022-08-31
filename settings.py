@@ -34,6 +34,7 @@ class AISettings(object):
 
 class ChatsSettings(object):
 
+    PROJECT_PERMISSION_UUID = config("PROJECT_PERMISSION_UUID")
     BASE_URL = config("CHATS_BASE_URL")
     OIDC_RP_CLIENT_ID = config("CHATS_OIDC_RP_CLIENT_ID")
     OIDC_RP_CLIENT_SECRET = config("CHATS_OIDC_RP_CLIENT_SECRET")
