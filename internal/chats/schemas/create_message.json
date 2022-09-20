@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "required": ["uuid", "user", "room", "contact", "text", "seen", "media", "created_on"],
+    "properties": {
+        "uuid": { "type": "string" },
+        "user": { "type": "string" },
+        "room": { "type": "string" },
+        "contact": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required": ["uuid", "name", "email", "status", "phone", "custom_fields", "created_on"],
+                "properties": {
+                    "uuid": { "type": "string" },
+                    "name": { "type": "string" },
+                    "email": { "type": "string" },
+                    "status": { "type": "string" },
+                    "phone": { "type": "string" },
+                    "custom_fields": { "type": "string" },
+                    "created_on": { "type": "string" }
+                }
+            }
+        },
+        "text": { "type": "string" },
+        "seen": { "type": "boolean" },
+        "media": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required": ["content_type", "url"],
+                "properties": {
+                    "content_type": { "type": "string" },
+                    "url": { "type": "string" }
+                }
+            }
+        },
+        "created_on": { "type": "boolean" }
+    }
+}
