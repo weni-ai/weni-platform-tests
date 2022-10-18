@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "required": ["count", "next", "previous", "results"],
+    "properties": {
+        "count": { "type": "number" },
+        "next": { "type": "string" },
+        "previous": { "type": "string" },
+        "results": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required": ["uuid", "name", "date_format", "timezone"],
+                "properties": {
+                    "uuid": { "type": "string" },
+                    "name": { "type": "string" },
+                    "date_format": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 1
+                    },
+                    "timezone": { "type": "string" }
+                }
+            }
+        }
+    }
+}
