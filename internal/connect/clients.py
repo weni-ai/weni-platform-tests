@@ -4,7 +4,7 @@ import requests
 
 from clients import ClientInterface, ClientBase
 from authenticators import OIDCClientCredentialsAuth
-from settings import AISettings, ConnectSettings
+from settings import AISettings, ConnectSettings, IntegrationsSettings
 
 
 if TYPE_CHECKING:
@@ -24,3 +24,9 @@ class AIConnectClient(ClientInterface, ClientBase):
         response.raise_for_status()
 
         return response
+
+
+class IntegrationsConnectClient(ClientInterface, ClientBase):
+
+    _base_url = ConnectSettings.BASE_URL
+    _authenticator = OIDCClientCredentialsAuth(IntegrationsSettings)
