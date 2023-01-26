@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "required": [
+        "project_uuid",
+        "ticketer_type",
+        "name",
+        "config"
+    ],
+    "properties": {
+        "project_uuid": { "type": "string" },
+        "ticketer_type": { "type": "string" },
+        "name": { "type": "string" },
+        "config": {
+            "type": "object",
+            "required": [
+                "project_auth",
+                "sector_uuid"
+            ],
+            "properties": {
+                "project_auth": { "type": "string" },
+                "sector_uuid": { "type": "string" }
+            }
+        }
+    }
+}
