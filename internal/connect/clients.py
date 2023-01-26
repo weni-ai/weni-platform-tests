@@ -46,3 +46,9 @@ class IntegrationsConnectClient(ClientInterface, ClientBase):
         response = requests.get(url, headers=self._authenticator.headers, params=params)
 
         return response
+
+
+class ChatsConnectClient(ClientInterface, ClientBase):
+    _base_url = ConnectSettings.BASE_URL
+    _authenticator = OIDCClientCredentialsAuth(IntegrationsSettings)
+
