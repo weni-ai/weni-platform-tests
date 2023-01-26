@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "required": ["uuid", "name", "sector_uuid"],
+    "properties": {
+        "uuid": {"type": "string"},
+        "name": {"type": "string"},
+        "sector_uuid": {"type": "string"}
+    }
+}
