@@ -30,3 +30,12 @@ class IntegrationsConnectClient(ClientInterface, ClientBase):
 
     _base_url = ConnectSettings.BASE_URL
     _authenticator = OIDCClientCredentialsAuth(IntegrationsSettings)
+
+    def list_channels(self, channel_type: str) -> "Response":
+        url = self._get_url("/v1/organization/project/list_channels/")
+        params = dict(channel_type=channel_type)
+
+        response = requests.get(url, headers=self._authenticator.headers, params=params)
+
+        return response
+
