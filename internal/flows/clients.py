@@ -38,3 +38,30 @@ class ConnectFlowsClient(ClientInterface, ClientBase):
 
         return response
 
+
+class ChatsFlowsClient(ClientInterface, ClientBase):
+
+    _base_url = FlowsSettings.BASE_URL
+    _authenticator = OIDCClientCredentialsAuth(ChatsSettings)
+
+    def create_queue(self, sector_uuid: str, name: str, uuid: str) -> "Response":
+        url = self._get_url(f"/api/v2/internals/ticketers/{sector_uuid}/queues")
+        data = dict(name=name, uuid=uuid)
+        response = requests.post(url, headers=self._authenticator.headers, json=data)
+
+        return response
+
+    def update_queue(self, sector_uuid: str, queue_uuid: str, name: str) -> "Response":
+        url = self._get_url(f"/api/v2/internals/ticketers/{sector_uuid}/queues/{queue_uuid}")
+        data = dict(name=name)
+        response = requests.patch(url, headers=self._authenticator.headers, json=data)
+
+        return response
+
+    def destroy_queue(self, sector_uuid: str, queue_uuid: str) -> "Response":
+        url = self._get_url(f"/api/v2/internals/ticketers/{sector_uuid}/queues/{queue_uuid}")
+        response = requests.delete(url, headers=self._authenticator.headers)
+
+        return response
+
+
