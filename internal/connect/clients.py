@@ -52,3 +52,8 @@ class ChatsConnectClient(ClientInterface, ClientBase):
     _base_url = ConnectSettings.BASE_URL
     _authenticator = OIDCClientCredentialsAuth(IntegrationsSettings)
 
+    def create_ticketer(self, project_uuid: str, ticketer_type: str, name: str, config: dict) -> "Response":
+        data = dict(project_uuid=project_uuid, ticketer_type=ticketer_type, name=name, config=config)
+        url = self._get_url("/v1/organization/project/create_ticketer/")
+
+        return requests.post(url, headers=self._authenticator.headers, json=data)
