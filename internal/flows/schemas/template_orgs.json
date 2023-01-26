@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "required": ["name", "timezone", "uuid"],
+  "properties": {
+      "name": {"type": "string"},
+      "timezone": {"type": "string"},
+      "uuid": {"type": "string"}
+  }
+}

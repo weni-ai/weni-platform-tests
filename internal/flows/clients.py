@@ -16,3 +16,11 @@ class ConnectFlowsClient(ClientInterface, ClientBase):
     _base_url = FlowsSettings.BASE_URL
     _authenticator = OIDCClientCredentialsAuth(ConnectSettings)
 
+    def create_template_org(self, user_email: str, name: str, timezone: str) -> "Response":
+        url = self._get_url("/api/v2/internals/template-orgs/")
+        data = dict(user_email=user_email, name=name, timezone=timezone)
+
+        response = requests.post(url, headers=self._authenticator.headers, json=data)
+
+        return response
+
