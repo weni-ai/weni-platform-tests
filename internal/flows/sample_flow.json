@@ -1,0 +1,21 @@
+{
+  "version": "13",
+  "site": "https://rapidpro.ilhasoft.mobi",
+  "flows": [
+    {
+      "name": "Contract Test Flows",
+      "uuid": "3e0359da-8e96-4e3b-86b5-00d6582e3f3c",
+      "spec_version": "13.1.0",
+      "language": "base",
+      "type": "messaging",
+      "nodes": [],
+      "_ui": {},
+      "revision": 1,
+      "expire_after_minutes": 10080
+    }
+  ],
+  "campaigns": [],
+  "triggers": [],
+  "fields": [],
+  "groups": []
+}
