@@ -13,5 +13,5 @@ class ListClassifiersTestCase(unittest.TestCase):
         self.schema = schemas.load("internal/connect/schemas/list_classifiers.json")
 
     def tests_list_classifiers_response_contracts(self):
-        response = self.client.list_classifiers(settings.PROJECT_UUID, "sandro.meireles@weni.ai")
+        response = self.client.list_classifiers(settings.PROJECT_UUID, settings.PROJECT_ADMIN_USER_EMAIL)
         jsonschema.validate(response.json(), self.schema)
