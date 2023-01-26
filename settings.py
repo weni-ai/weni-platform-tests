@@ -32,6 +32,12 @@ class AISettings(object):
     OIDC_RP_CLIENT_SECRET = config("AI_OIDC_RP_CLIENT_SECRET")
 
 
+class FlowsSettings(object):
+
+    BASE_URL = config("FLOWS_BASE_URL")
+    ORG_UUID = config("FLOWS_ORG_UUID")
+
+
 class ChatsSettings(object):
 
     BASE_URL = config("CHATS_BASE_URL")
