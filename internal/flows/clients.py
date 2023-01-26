@@ -31,3 +31,10 @@ class ConnectFlowsClient(ClientInterface, ClientBase):
 
         return response
 
+    def retrieve_user_api_token(self, user_email: str, org_uuid: str):
+        url = self._get_url("/api/v2/internals/users/api-token")
+        params = dict(user=user_email, org=org_uuid)
+        response = requests.get(url, headers=self._authenticator.headers, params=params)
+
+        return response
+
