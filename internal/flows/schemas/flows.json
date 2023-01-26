@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "required": ["org", "uuid"],
+  "properties": {
+      "org": {"type": "string"},
+      "uuid": {"type": "string"}
+  }
+}

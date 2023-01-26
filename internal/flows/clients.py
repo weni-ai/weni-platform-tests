@@ -24,3 +24,10 @@ class ConnectFlowsClient(ClientInterface, ClientBase):
 
         return response
 
+    def create_flow(self, org_uuid: str, sample_flow: str):
+        url = self._get_url("/api/v2/internals/flows/")
+        data = dict(org=org_uuid, sample_flow=sample_flow)
+        response = requests.post(url, headers=self._authenticator.headers, json=data)
+
+        return response
+
