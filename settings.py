@@ -37,3 +37,5 @@ class ChatsSettings(object):
     BASE_URL = config("CHATS_BASE_URL")
     OIDC_RP_CLIENT_ID = config("CHATS_OIDC_RP_CLIENT_ID")
     OIDC_RP_CLIENT_SECRET = config("CHATS_OIDC_RP_CLIENT_SECRET")
+    SECTOR_UUID = config("CHATS_SECTOR_UUID")
+    QUEUE_UUID = config("CHATS_QUEUE_UUID")
