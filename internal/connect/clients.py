@@ -4,7 +4,7 @@ import requests
 
 from clients import ClientInterface, ClientBase
 from authenticators import OIDCClientCredentialsAuth
-from settings import AISettings, ConnectSettings
+from settings import AISettings, ConnectSettings, IntegrationsSettings
 
 
 if TYPE_CHECKING:
@@ -24,3 +24,18 @@ class AIConnectClient(ClientInterface, ClientBase):
         response.raise_for_status()
 
         return response
+
+
+class IntegrationsConnectClient(ClientInterface, ClientBase):
+
+    _base_url = ConnectSettings.BASE_URL
+    _authenticator = OIDCClientCredentialsAuth(IntegrationsSettings)
+
+    def list_channels(self, channel_type: str) -> "Response":
+        url = self._get_url("/v1/organization/project/list_channels/")
+        params = dict(channel_type=channel_type)
+
+        response = requests.get(url, headers=self._authenticator.headers, params=params)
+
+        return response
+

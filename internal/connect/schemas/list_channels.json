@@ -1,0 +1,22 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+        "uuid",
+        "name",
+        "config",
+        "address",
+        "project_uuid",
+        "is_active"
+    ],
+    "properties": {
+      "uuid": { "type": "string" },
+      "name": { "type": "string" },
+      "config": { "type": "object" },
+      "address": { "type": "string" },
+      "project_uuid": { "type": "string" },
+      "is_active": { "type": "boolean" }
+    }
+  }
+}
