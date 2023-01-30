@@ -14,5 +14,4 @@ class RetrieveUserAPITokenTestCase(unittest.TestCase):
     
     def tests_retrieve_user_api_token_response_contracts(self):
         response = self.client.retrieve_user_api_token(settings.PROJECT_UUID, settings.PROJECT_ADMIN_USER_EMAIL)
-        print(response.request.url)
         jsonschema.validate(response.json(), self.schema)
