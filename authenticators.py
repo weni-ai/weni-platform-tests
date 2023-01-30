@@ -1,8 +1,13 @@
 from abc import ABCMeta, abstractmethod
+from typing import TYPE_CHECKING
 
 import requests
 
 import settings
+
+
+if TYPE_CHECKING:
+    from requests import Response
 
 
 class OIDCAuth(metaclass=ABCMeta):
