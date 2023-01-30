@@ -24,14 +24,14 @@
       "description": { "type": "string" },
       "summary": { "type": "string" },
       "category": { "type": "string" },
-      "icon": { "type": "string" },
+      "icon": { "type": ["string", "null"] },
       "bg_color": { "type": "string" },
       "config_design": { "type": "string" },
       "rating": {
         "type": "object",
         "required": ["average", "mine"],
         "properties": {
-          "average": { "type": "number" },
+          "average": { "type": ["number", "null"] },
           "mine": { "type": ["integer", "null"] }
         }
       },
@@ -39,6 +39,7 @@
       "integrations_count": { "type": "integer" },
       "metrics": { "type": "integer" },
       "can_add": { "type": "boolean" },
+      "channels_available": { "type": [ "array", "null"] },
       "assets": {
         "type": "array",
         "items": {
